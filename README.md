@@ -1,112 +1,112 @@
-# RN — Rekurzív Nyelv (Lisp-szerű Interpretált Programozási Nyelv)
+# RN — Recursive Language (Lisp-like Interpreted Programming Language)
 
-**Egy tömör, rekurzív, Lisp-szerű programozási nyelv Pythonban implementálva. Mindössze 5 szabály, ~150 sor.**
+**A concise, recursive, Lisp-like programming language implemented in Python. Only 5 rules, ~150 lines.**
 
-## 💻 Leírás
+## 💻 Description
 
-Az RN (Rekurzív Nyelv) egy minimalista, Lisp-szerű értelmező, amely:
+RN (Recursive Language) is a minimalist, Lisp-like interpreter that features:
 
-- **5 alapszabály** — rendkívül egyszerű, mégis Turing-teljes
-- **~150 soros** Python implementáció
-- **Rekurzív kiértékelés** — S-kifejezések és lambdák
-- **Lexikális scope** — változók és függvények izolációja
-- **Beépített aritmetika** — `+`, `-`, `*`, `/`, `%`
-- **Adatszerkezetek** — listák, számok, stringek, szimbólumok
-- **Feltételes kifejezés** — `if`
-- **Függvény definíció** — `lambda` / `fn`
+- **5 core rules** — extremely simple, yet Turing-complete
+- **~150-line** Python implementation
+- **Recursive evaluation** — S-expressions and lambdas
+- **Lexical scope** — variable and function isolation
+- **Built-in arithmetic** — `+`, `-`, `*`, `/`, `%`
+- **Data structures** — lists, numbers, strings, symbols
+- **Conditional expressions** — `if`
+- **Function definition** — `lambda` / `fn`
 
-### Példa kód
+### Example Code
 
 ```lisp
-; Függvény definíció
+; Function definition
 (fn factorial [n]
   (if (<= n 1)
       1
       (* n (factorial (- n 1)))))
 
-; Használat
+; Usage
 (factorial 5)
 ; → 120
 ```
 
-## 📁 Fájlszerkezet
+## 📁 File Structure
 
 ```
 rn/
-├── rn.py                        # Interpreter (201 sor)
-├── test_token.py                # Tokenizer teszt
-├── pelda.rn                     # Példa programok
-├── pelda_simple.rn              # Egyszerű példák
-├── pelda2.rn                    # További példák
-├── pelda3.rn                    # Még több példa
+├── rn.py                        # Interpreter (201 lines)
+├── test_token.py                # Tokenizer test
+├── pelda.rn                     # Example programs
+├── pelda_simple.rn              # Simple examples
+├── pelda2.rn                    # Additional examples
+├── pelda3.rn                    # More examples
 └── README.md
 ```
 
-## 🚀 Használat
+## 🚀 Usage
 
-### Interpreter indítása fájllal
+### Running the interpreter with a file
 
 ```bash
 python rn.py pelda.rn
 ```
 
-### Interaktív REPL
+### Interactive REPL
 
 ```bash
 python rn.py
 ```
 
-### Példaprogramok futtatása
+### Running example programs
 
 ```bash
-# Alap példák
+# Basic examples
 python rn.py pelda.rn
 
-# Egyszerű példák
+# Simple examples
 python rn.py pelda_simple.rn
 
-# Haladó példák
+# Advanced examples
 python rn.py pelda2.rn
 python rn.py pelda3.rn
 ```
 
-### Tokenizer teszt
+### Tokenizer test
 
 ```bash
 python test_token.py
 ```
 
-## 📦 Függőségek
+## 📦 Dependencies
 
 - **Python 3.8+** (standard library only)
-- Csak `sys`, `math`, `operator`, `functools` — mind beépített
+- Only `sys`, `math`, `operator`, `functools` — all built-in
 
-## 🔤 Nyelvi szabályok
+## 🔤 Language Rules
 
-### Az 5 alapszabály
+### The 5 Core Rules
 
-| # | Szabály | Leírás |
-|---|--------|--------|
-| 1 | **Szám** | `42` → önmaga |
-| 2 | **String** | `"hello"` → önmaga |
-| 3 | **Szimbólum** | `x` → környezetből érték keresése |
-| 4 | **Lista** | `(fn x ...)` → speciális forma |
-| 5 | **Függvényhívás** | `(f a b)` → `f(a, b)` alkalmazása |
+| # | Rule | Description |
+|---|------|-------------|
+| 1 | **Number** | `42` → evaluates to itself |
+| 2 | **String** | `"hello"` → evaluates to itself |
+| 3 | **Symbol** | `x` → look up value in environment |
+| 4 | **List** | `(fn x ...)` → special form |
+| 5 | **Function call** | `(f a b)` → apply `f(a, b)` |
 
-### Beépített függvények
+### Built-in Functions
 
-| Függvény | Leírás |
-|----------|--------|
-| `+`, `-`, `*`, `/`, `%` | Aritmetikai műveletek |
-| `<`, `>`, `<=`, `>=`, `=` | Összehasonlítások |
-| `if` | Feltételes elágazás |
-| `fn` | Lambda / függvény definíció |
-| `list` | Lista konstruktor |
-| `car`, `cdr` | Lista fej / farok |
-| `cons` | Elem lista elejére |
-| `print` | Kiíratás |
+| Function | Description |
+|----------|-------------|
+| `+`, `-`, `*`, `/`, `%` | Arithmetic operations |
+| `<`, `>`, `<=`, `>=`, `=` | Comparisons |
+| `if` | Conditional branching |
+| `fn` | Lambda / function definition |
+| `list` | List constructor |
+| `car`, `cdr` | List head / tail |
+| `cons` | Prepend element to list |
+| `print` | Output |
 
-### Példa: Fibonacci
+### Example: Fibonacci
 
 ```lisp
 (fn fib [n]
@@ -118,7 +118,7 @@ python test_token.py
 ; → 55
 ```
 
-### Példa: Map függvény
+### Example: Map function
 
 ```lisp
 (fn map [f lst]
@@ -130,27 +130,30 @@ python test_token.py
 ; → [2 4 6 8 10]
 ```
 
-## 🔧 Architektúra
+## 🔧 Architecture
 
 ```
 rn.py
 ├── Tokenizer
-│   ├── Karakterenkénti tokenizálás
-│   ├── Szám, string, szimbólum felismerés
-│   └── Zárójel kezelés: () és []
+│   ├── Character-by-character tokenization
+│   ├── Number, string, symbol recognition
+│   └── Parenthesis handling: () and []
 ├── Parser
-│   └── Tokenek → AST (beágyazott listák)
+│   └── Tokens → AST (nested lists)
 ├── Evaluator
-│   ├── Környezet (lexikális scope)
-│   ├── Speciális formák (fn, if, ...)
-│   ├── Beépített függvények
-│   └── Rekurzív kiértékelés
-└── REPL / Fájl futtató
+│   ├── Environment (lexical scope)
+│   ├── Special forms (fn, if, ...)
+│   ├── Built-in functions
+│   └── Recursive evaluation
+└── REPL / File runner
 ```
 
-## 🎯 Célok
+## 🎯 Goals
 
-- **Oktatási eszköz** — programozási nyelvek alapjainak megértése
-- **Minimális interpreter** — a lehető legkevesebb kód
-- **Turing-teljes** — elvileg bármilyen számítás elvégezhető
-- **Kísérleti platform** — új nyelvi funkciók gyors prototipizálása
+- **Educational tool** — understanding programming language fundamentals
+- **Minimal interpreter** — the fewest lines of code possible
+- **Turing-complete** — capable of any computation in principle
+- **Experimental platform** — rapid prototyping of new language features
+
+## Author
+Zsombi & Hermes Agent (Nous Research)
