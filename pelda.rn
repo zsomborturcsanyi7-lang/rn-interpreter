@@ -1,0 +1,89 @@
+; RN - Példák
+; ============
+; Komment: pontosvesszővel kezdődik
+
+; --- Alapok ---
+(print "Hello RN!")
+
+; --- Aritmetika ---
+(print (+ 1 2 3 4 5))        ; → 15
+(print (* 2 (+ 3 4)))        ; → 14
+
+; --- Feltétel ---
+(print (if (> 5 3) "igen" "nem"))  ; → "igen"
+
+; --- Rekurzió (a nyelv lelke!) ---
+(defn fakt [n]
+  (if (<= n 1)
+    1
+    (* n (fakt (- n 1)))))
+
+(print "5! =" (fakt 5))      ; → 120
+
+; --- Listák ---
+(defn osszeg [lst]
+  (if (= lst [])
+    0
+    (+ (get lst 0) (osszeg (get lst 1)))))
+
+; Hoppá, nincs first/rest! Javítva:
+(defn first [lst] (get lst 0))
+(defn rest [lst] (get lst 1))
+
+(defn osszeg2 [lst]
+  (if (= lst [])
+    0
+    (+ (first lst) (osszeg2 (rest lst)))))
+
+(print "Osszeg:" (osszeg2 [1 2 3 4 5]))  ; → 15
+
+; --- Map / Filter / Reduce ---
+(print (map (fn [x] (* x 2)) [1 2 3 4]))    ; → [2 4 6 8]
+(print (filter (fn [x] (> x 2)) [1 2 3 4])) ; → [3 4]
+
+; --- Adatcső (pipe) ---
+(print
+  (pipe 5
+    (fn [x] (* x 2))
+    (fn [x] (+ x 3))
+    (fn [x] (- x 1))))  ; → 12
+
+; --- Fibonacci (rekurzív) ---
+(defn fib [n]
+  (if (< n 2)
+    n
+    (+ (fib (- n 1)) (fib (- n 2)))))
+
+(print "Fib 10 =" (fib 10))  ; → 55
+
+; --- Hatvány ---
+(defn hatvany [a n]
+  (if (= n 0)
+    1
+    (* a (hatvany a (- n 1)))))
+
+(print "2^10 =" (hatvany 2 10))  ; → 1024
+
+; --- Prímszám teszt ---
+(defn oszthato? [n i]
+  (if (= i 1)
+    True
+    (if (= (% n i) 0)
+      False
+      (oszthato? n (- i 1)))))
+
+(defn prim? [n]
+  (if (< n 2) False
+    (oszthato? n (- n 1))))
+
+(print "Prim 7:" (prim? 7))   ; → True
+(print "Prim 8:" (prim? 8))   ; → False
+
+; --- Számsorozat ---
+(print (range 10))            ; → [0 1 2 3 4 5 6 7 8 9]
+(print (range 5 10))          ; → [5 6 7 8 9]
+
+; --- Prímszámok 1-20 között ---
+(print "Primek 1-20:")
+(print (filter (fn [n] (prim? n)) (range 1 21)))
+; → [2 3 5 7 11 13 17 19]

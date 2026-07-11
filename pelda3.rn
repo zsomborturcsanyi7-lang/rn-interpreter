@@ -1,0 +1,70 @@
+;; RN - Rekurzív Nyelv példák
+;; ==========================
+;; Ez egy RN program. Pontosvessző a komment.
+
+;; --- 1. ALAPOK ---
+(print "--- ALAPOK ---")
+(print "1 + 2 + 3 =" (+ 1 2 3))
+(print "2 * (3+4) =" (* 2 (+ 3 4)))
+(print "10 > 5:" (> 10 5))
+(print "3 <= 3:" (<= 3 3))
+
+;; --- 2. FELTÉTELEK ---
+(print "\n--- FELTETELEK ---")
+(print (if (> 5 3) "igen" "nem"))
+(print (if (= 2 2) "egyenlo" "nem-egyenlo"))
+
+;; --- 3. REKURZIÓ ---
+(print "\n--- REKURZIO ---")
+
+(defn fakt [n]
+  (if (<= n 1)
+    1
+    (* n (fakt (- n 1)))))
+
+(print "5! =" (fakt 5))
+(print "10! =" (fakt 10))
+
+(defn fib [n]
+  (if (< n 2)
+    n
+    (+ (fib (- n 1)) (fib (- n 2)))))
+
+(print "fib 10 =" (fib 10))
+(print "fib 20 =" (fib 20))
+
+;; --- 4. LISTÁK ÉS MAP/FILTER ---
+(print "\n--- LISTAK ---")
+
+(print "Map x2:" (map (fn [x] (* x 2)) [1 2 3 4 5]))
+(print "Filter >3:" (filter (fn [x] (> x 3)) [1 2 3 4 5 6]))
+
+(print "Paros szamok:")
+(print (filter (fn [x] (= (% x 2) 0)) (range 1 21)))
+
+;; --- 5. PIPELINE ---
+(print "\n--- PIPELINE ---")
+
+(defn duplaz [x] (* x 2))
+(defn hozzaad [x] (+ x 3))
+
+(print "Pipe:" (pipe 5 duplaz hozzaad (fn [x] (- x 1))))
+
+;; --- 6. PRÍMSZÁMOK ---
+(print "\n--- PRIMEK ---")
+
+(defn oszthato? [n i]
+  (if (= i 1)
+    True
+    (if (= (% n i) 0)
+      False
+      (oszthato? n (- i 1)))))
+
+(defn prim? [n]
+  (if (< n 2) False (oszthato? n (- n 1))))
+
+(print "Prim 7:" (prim? 7))
+(print "Prim 8:" (prim? 8))
+(print "Primek 1-30:" (filter (fn [n] (prim? n)) (range 1 31)))
+
+(print "\n--- RN KESZ! ---")
