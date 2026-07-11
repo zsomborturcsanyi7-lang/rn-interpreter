@@ -1,6 +1,17 @@
 # RN — Recursive Language (Lisp-like Interpreted Programming Language)
 
+**Status:** ✅ Working — Lisp interpreter tested with example .rn files, all 5 rules functional
+
+
 **A concise, recursive, Lisp-like programming language implemented in Python. Only 5 rules, ~150 lines.**
+
+## ⚠️ THIS PROJECT IS UNFINISHED — FEEL FREE TO CONTINUE IT ⚠️
+
+**Ez a projekt NINCS KÉSZEN. Bárki folytathatja, aki akarja!**
+Ezt a projektet Zsombi & Hermes Agent (Nous Research) közösen fejlesztette, de egyik projekt sincs 100%-osan befejezve. Ha tetszik az ötlet és tovább fejlesztenéd, nyugodtan fork-old, folytasd, és csinálj belőle valami nagyszerűt!
+
+---
+
 
 ## 💻 Description
 
