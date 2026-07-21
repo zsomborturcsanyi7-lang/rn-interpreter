@@ -1,32 +1,29 @@
-# RN (Recursive Language) — Lisp-szerű interpreter ~200 sor Pythonban
+# RN (Recursive Language) — Lisp-like Interpreter in ~200 Lines of Python
 
-**Status:** ✅ Working — Lisp interpreter tesztelve .rn fájlokkal, mind az 5 szabály működik
+**Status:** ✅ Working — Lisp interpreter tested with .rn files, all 5 rules functional
 
-Minimalista, Lisp-szerű programozási nyelv Python implementációban. Csak 5 szabály, ~150 sor.
+A minimalist, Lisp-like programming language implemented in Python. Only 5 rules, ~150 lines.
 
 ## ⚠️ THIS PROJECT IS UNFINISHED — FEEL FREE TO CONTINUE IT ⚠️
 
-**Ez a projekt NINCS KÉSZEN. Bárki folytathatja, aki akarja!**
-Ezt a projektet Zsombi & Hermes Agent (Nous Research) közösen fejlesztette, de egyik projekt sincs 100%-osan befejezve. Ha tetszik az ötlet és tovább fejlesztenéd, nyugodtan fork-old, folytasd, és csinálj belőle valami nagyszerűt!
+This project was developed by Zsombi & Hermes Agent (Nous Research).
 
 ---
 
 ## Features
-- 5 core rule — rendkívül egyszerű, Turing-teljes
-- ~150 soros Python implementáció
-- Rekurzív kiértékelés — S-expression-ök és lambdák
-- Lexikális scope — változó és függvény izoláció
-- Beépített aritmetika — +, -, *, /, %
-- Adatstruktúrák — listák, számok, stringek, szimbólumok
-- Feltételes kifejezések — if
-- Függvény definíció — lambda / fn
+- 5 core rules — extremely simple, yet Turing-complete
+- ~150-line Python implementation
+- Recursive evaluation — S-expressions and lambdas
+- Lexical scope — variable and function isolation
+- Built-in arithmetic: +, -, *, /, %
+- Data structures: lists, numbers, strings, symbols
+- Conditional expressions: if, function definition: lambda/fn
 
-## Fájlok
-| Fájl | Leírás |
-|------|--------|
+## Files
+| File | Description |
+|------|-------------|
 | `rn.py` | Interpreter |
-| `pelda.rn` | Példa program |
-| `test_token.py` | Token teszt |
+| `pelda.rn` | Example program |
 
-## Fejlesztő
+## Developer
 Zsombi & Hermes Agent (Nous Research)
