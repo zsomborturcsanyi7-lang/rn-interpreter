@@ -1,19 +1,19 @@
 # rn-interpreter
 
-Rekurzív Lisp-szerű értelmező (interpreter) Pythonban.
+Recursive Lisp-like interpreter implemented in Python.
 
-## 📌 A projekt célja
-Egy egyszerű kifejezés-értékelő és saját szintaxisú interpreter megvalósítása oktatási és kísérleti célból.
+## 📌 Overview & Purpose
+A lightweight expression evaluator and custom syntax interpreter created for educational and experimental purposes.
 
-## ⚙️ Technológiai stakk
+## ⚙️ Tech Stack & Architecture
 - Python 3
 
-## 🚀 Telepítés és Használat
+## 🚀 Installation & Quickstart
 ```bash
 git clone https://github.com/zsomborturcsanyi7-lang/rn-interpreter.git
 cd rn-interpreter
 python main.py
 ```
 
-## 📊 Status
-⚠️ **Prototípus**.
+## 📊 Project Status
+⚠️ **Prototype**.
