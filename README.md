@@ -1,4 +1,4 @@
-# RN (Recursive Language) — Lisp-like Interpreter in ~200 Lines of Python
+# rn-interpreter
 
 **Status:** ✅ Working — Lisp interpreter tested with .rn files, all 5 rules functional
 
